@@ -593,7 +593,7 @@ func (g *Gtp5g) CreateFAR(lSeid uint64, req *ie.IE) error {
 			}
 			attrs = append(attrs, nl.Attr{
 				Type:  gtp5gnl.FAR_APPLY_ACTION,
-				Value: nl.AttrU8(v),
+				Value: nl.AttrU16(v),
 			})
 		case ie.ForwardingParameters:
 			xs, err := i.ForwardingParameters()
@@ -649,7 +649,7 @@ func (g *Gtp5g) UpdateFAR(lSeid uint64, req *ie.IE) error {
 			}
 			attrs = append(attrs, nl.Attr{
 				Type:  gtp5gnl.FAR_APPLY_ACTION,
-				Value: nl.AttrU8(v),
+				Value: nl.AttrU16(v),
 			})
 			g.applyAction(lSeid, int(farid), v)
 		case ie.UpdateForwardingParameters:
